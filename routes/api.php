@@ -20,6 +20,6 @@ Route::post('/login-user', [LoginController::class, 'login_user']);
 Route::post('/submit-email', [ForgotPasswordController::class, 'submit_email']);
 Route::post('/reset-password', [ForgotPasswordController::class, 'reset_password']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum', 'verified'])->get('/user', function (Request $request) {
     return $request->user();
 });

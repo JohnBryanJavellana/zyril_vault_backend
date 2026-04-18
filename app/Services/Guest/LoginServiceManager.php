@@ -49,6 +49,7 @@ class LoginServiceManager {
      */
     protected function isEmailUnverified(User $user): bool
     {
+        $user->sendEmailVerificationNotification();
         return \is_null($user->email_verified_at);
     }
 }
